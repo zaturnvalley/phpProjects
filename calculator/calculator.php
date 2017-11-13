@@ -6,19 +6,19 @@
 <body bgcolor="black" style="color: white;">
   <form method="post" action="calculator.php" align="center">
 
-    <b>Value 1:</b>
-    <input type="text" name="value1" size="10" placeholder="Enter a value">
+    <b>Value 1:</b>&nbsp;
+    <input type="text" name="value1" size="15" placeholder="Enter a value">&nbsp;
 
-    <b>Value 2:</b>
-    <input type="text" name="value2" size="10" placeholder="Enter a value">
+    <b>Value 2:</b>&nbsp;
+    <input type="text" name="value2" size="15" placeholder="Enter a value">&nbsp;
 
-    <b>Select Operator:</b>
+    <b>Select Operator:</b>&nbsp;
     <select name="operator">
       <option>+</option>
       <option>-</option>
       <option>*</option>
       <option>/</option>
-    </select>
+    </select>&nbsp;
     <input type="submit" name="cal" value="Calculate">       
   </form>
   <hr>
