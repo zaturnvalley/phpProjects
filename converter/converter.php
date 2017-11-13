@@ -33,22 +33,22 @@
     if($from=='USD' AND $to=='CAD'){
       echo "<center><h2>&dollar; <b style='color:red;'>";
       echo $amount * 1.27;
-      echo " CAD</b></h2></center>"
+      echo " CAD</b></h2></center>";
     }
     if($from=='USD' AND $to=='GBP'){
       echo "<center><h2>&pound; <b style='color:red;'>";
       echo $amount * .76;
-      echo " GBP</b></h2></center>"
+      echo " GBP</b></h2></center>";
     }
     if($from=='USD' AND $to=='EURO'){
       echo "<center><h2>&euro; <b style='color:red;'>";
       echo $amount * .86;
-      echo " EURO</b></h2></center>"
+      echo " EURO</b></h2></center>";
     }
     if($from=='USD' AND $to=='JPY'){
       echo "<center><h2>&yen; <b style='color:red;'>";
       echo $amount * 113.59;
-      echo " JPY</b></h2></center>"
+      echo " JPY</b></h2></center>";
     }            
   }
   ?>
