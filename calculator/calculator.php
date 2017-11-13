@@ -33,22 +33,22 @@
     if($opt =='+'){
       echo "<center><h2>Your Answer is: <b style='color:skyblue;'>";
       echo $value1 + $value2;
-      echo "</b></h2></center>"
+      echo "</b></h2></center>";
     } 
     if($opt =='-'){
       echo "<center><h2>Your Answer is: <b style='color:skyblue;'>";
       echo $value1 - $value2;
-      echo "</b></h2></center>"
+      echo "</b></h2></center>";
     } 
     if($opt =='*'){
       echo "<center><h2>Your Answer is: <b style='color:skyblue;'>";
       echo $value1 * $value2;
-      echo "</b></h2></center>"
+      echo "</b></h2></center>";
     } 
     if($opt =='/'){
       echo "<center><h2>Your Answer is: <b style='color:skyblue;'>";
       echo $value1 / $value2;
-      echo "</b></h2></center>"
+      echo "</b></h2></center>";
     }             
   }
   ?>
