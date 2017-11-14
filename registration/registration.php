@@ -31,25 +31,25 @@
       <tr>
         <td align="right"><strong>Name:</strong></td>
         <td>
-          <input type="text" name="user_name" placeholder="Enter your Name" />
+          <input type="text" name="user_name" placeholder="Enter your Name" required="required" />
         </td>
       </tr>   
       <tr>
         <td align="right"><strong>Password:</strong></td>
         <td>
-          <input type="text" name="user_pass" placeholder="Enter your Password" />
+          <input type="password" name="user_pass" placeholder="Enter your Password" required="required"/>
         </td>
       </tr>  
       <tr>
         <td align="right"><strong>Email:</strong></td>
         <td>
-          <input type="text" name="user_email" placeholder="Enter your Email" />
+          <input type="text" name="user_email" placeholder="Enter your Email" required="required"/>
         </td>
       </tr>   
       <tr>
         <td align="right"><strong>Country:</strong></td>
         <td>
-          <select name="country">
+          <select name="user_country" required="required">
             <option>Select a Country</option>
             <option>USA</option>
             <option>Canada</option> 
@@ -61,7 +61,7 @@
       <tr>
         <td align="right"><strong>Phone Number:</strong></td>
         <td>
-          <input type="text" name="user_no" placeholder="Enter your Phone Number" />
+          <input type="text" name="user_no" placeholder="Enter your Phone Number" required="required"/>
         </td>
       </tr>   
       <tr>
@@ -80,13 +80,13 @@
       <tr>
         <td align="right"><strong>Birthday:</strong></td>
         <td>
-          <input type="date" name="b_day" />
+          <input type="date" name="b_day" required="required"/>
         </td>
       </tr>       
       <tr>
         <td align="right"><strong>Image:</strong></td>
         <td>
-          <input type="file" name="user_image" />
+          <input type="file" name="user_image" required="required"/>
         </td>
       </tr> 
       <tr align="center">
@@ -96,5 +96,26 @@
       </tr>                                   
     </table>
   </form>
+  <?php
+  if(isset($_POST['register'])){
+    // getting text info and save into local variable
+    $user_name = $_POST['user_name'];
+    $user_pass = $_POST['user_pass'];
+    $user_email = $_POST['user_email'];
+    $user_country = $_POST['user_country'];
+    $user_no = $_POST['user_no'];
+    $user_address = $_POST['user_address'];
+    $user_b_day = $_POST['user_b_day'];
+
+    // getting the image & saving into local variables
+    $user_image = $_FILES['user_image']['name'];
+    $user_tmp = $_FILES['user_image']['tmp_name'];
+
+     if($user_address=='' OR $user_country = '' OR $use_image ==''){
+        echo "<script>alert('Please fill out all of the fields.');</script>";
+        exit();
+     }
+  }
+  ?>
 </body>
 </html>
