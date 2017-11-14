@@ -103,6 +103,7 @@
     $user_pass = $_POST['user_pass'];
     $user_email = $_POST['user_email'];
     $user_country = $_POST['user_country'];
+    $user_gender = $_POST['user_gender'];
     $user_no = $_POST['user_no'];
     $user_address = $_POST['user_address'];
     $user_b_day = $_POST['user_b_day'];
@@ -111,9 +112,23 @@
     $user_image = $_FILES['user_image']['name'];
     $user_tmp = $_FILES['user_image']['tmp_name'];
 
-     if($user_address=='' OR $user_country = '' OR $use_image ==''){
+    // If forms are blank, alert
+     if($user_address == '' OR $user_country == '' OR $use_image == '' OR $user_gender == ''){
         echo "<script>alert('Please fill out all of the fields.');</script>";
         exit();
+     }
+
+     // email validation, alert
+     if(!filter_var($user_email, FILTER_VALIDATE_EMAIL)){
+
+        echo "<script>alert('Your email is not valid.');</script>";
+        exit();
+     }
+
+     // password length check
+     if(strlen($user_pass < 8)){
+        echo "<script>alert('Please make your password 8 characters or longer.');</script>";
+        exit();      
      }
   }
   ?>
