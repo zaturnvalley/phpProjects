@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+$con = mysqli_connect("localhost", "root", "", "php");
+?>
 <html>
   <head>
     <title>Registration</title>
@@ -129,6 +132,16 @@
      if(strlen($user_pass < 8)){
         echo "<script>alert('Please make your password 8 characters or longer.');</script>";
         exit();      
+     }
+
+     $sel_email = "select * from register_user where user_email ='$user_email'" ;
+     $run_email = mysqli_query($con,$sel_email);
+
+     $check_email = mysqli_num_rows($run_email);
+
+     if($check_email==0){
+        echo "<script>alert('This email is already registered. Try another email, please.');</script>";
+        exit(); 
      }
   }
   ?>
