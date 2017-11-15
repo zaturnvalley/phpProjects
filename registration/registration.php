@@ -5,100 +5,123 @@ $con = mysqli_connect("localhost", "root", "", "php");
 <html>
   <head>
     <title>Registration</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </head>
   <style>
   body {
     font-family: sans-serif;
     padding: 0;
     margin: 0;
-    background: skyblue;
   }
-    table {
-      color: white;
-      padding: 10px;
-      width: 400px;
-    }
-    input {
-      padding: 5px;
-    }
+  .row {
+      padding-bottom: 5px;
+  }
   </style>
 <body>
   <br>
-  <form action="registration.php" method="post" enctype="multipart/form-data">
-    <table bgcolor="gray" align="center" width="500">
-      <tr align="center">
-        <td colspan="6">
-          <h2>New User? Register Here</h2>
-        </td>
-      </tr>
-      <tr>
-        <td align="right"><strong>Name:</strong></td>
-        <td>
-          <input type="text" name="user_name" placeholder="Enter your Name" required="required" />
-        </td>
-      </tr>   
-      <tr>
-        <td align="right"><strong>Password:</strong></td>
-        <td>
-          <input type="password" name="user_pass" placeholder="Enter your Password" required="required"/>
-        </td>
-      </tr>  
-      <tr>
-        <td align="right"><strong>Email:</strong></td>
-        <td>
-          <input type="text" name="user_email" placeholder="Enter your Email" required="required"/>
-        </td>
-      </tr>   
-      <tr>
-        <td align="right"><strong>Country:</strong></td>
-        <td>
-          <select name="user_country" required="required">
-            <option>Select a Country</option>
-            <option>USA</option>
-            <option>Canada</option> 
-            <option>Mexico</option>
-            <option>United Kingdom</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td align="right"><strong>Phone Number:</strong></td>
-        <td>
-          <input type="text" name="user_no" placeholder="Enter your Phone Number" required="required"/>
-        </td>
-      </tr>   
-      <tr>
-        <td align="right"><strong>Address:</strong></td>
-        <td>
-          <textarea name="user_address" cols="20" rows="5"></textarea>
-        </td>
-      </tr>  
-      <tr>
-        <td align="right"><strong>Gender:</strong></td>
-        <td>
-          Male:<input type="radio" name="user_gender" value="Male" />
-          Female:<input type="radio" name="user_gender" value="Female" />
-        </td>
-      </tr>  
-      <tr>
-        <td align="right"><strong>Birthday:</strong></td>
-        <td>
-          <input type="date" name="user_b_day" required="required"/>
-        </td>
-      </tr>       
-      <tr>
-        <td align="right"><strong>Image:</strong></td>
-        <td>
-          <input type="file" name="user_image" required="required"/>
-        </td>
-      </tr> 
-      <tr align="center">
-        <td colspan="6">
-          <input type="submit" name="register" value="Register Now">
-        </td>
-      </tr>                                   
-    </table>
-  </form>
+  <h2 class="text-center">Basic PHP Registration Forms</h2>
+  <hr>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center">New User? Register Here</h2>
+      </div>
+    </div>
+    <form action="registration.php" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-2">
+            <strong>Name:</strong>
+          </div>
+          <div class="col-md-10">
+            <input class="form-control" type="text" name="user_name" placeholder="Enter your Name" required="required" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <strong>Password:</strong>
+          </div>
+          <div class="col-md-10">
+            <input class="form-control" type="password" name="user_pass" placeholder="Enter your Password" required="required"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <strong>Email:</strong>
+          </div>
+          <div class="col-md-10">
+            <input class="form-control" type="text" name="user_email" placeholder="Enter your Email" required="required"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <strong>Country:</strong>
+          </div>
+          <div class="col-md-10">
+            <select class="form-control" name="user_country" required="required">
+              <option>Select a Country</option>
+              <option>USA</option>
+              <option>Canada</option> 
+              <option>Mexico</option>
+              <option>United Kingdom</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <strong>Phone Number:</strong>
+          </div>
+          <div class="col-md-10">
+            <input class="form-control" type="text" name="user_no" placeholder="Enter your Phone Number" required="required"/>
+          </div>
+        </div>  
+        <div class="row">
+          <div class="col-md-2">
+            <strong>Address:</strong>
+          </div>
+          <div class="col-md-10">
+            <textarea class="form-control" name="user_address" cols="20" rows="5"></textarea>
+          </div>
+        </div>  
+        <div class="row">
+          <div class="col-md-2">
+            <strong>Gender:</strong>
+          </div>
+          <div class="col-md-10">
+            Male:&nbsp;<input class="form-check-label" type="radio" name="user_gender" value="Male" />
+            Female:&nbsp;<input class="form-check-label" type="radio" name="user_gender" value="Female" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <strong>Birthday:</strong>
+          </div>
+          <div class="col-md-10">
+            <input class="form-control" type="date" name="user_b_day" required="required"/>
+          </div>
+        </div>       
+        <div class="row">
+          <div class="col-md-2">
+            <strong>Image:</strong>
+          </div>
+          <div class="col-md-10">
+            <input class="form-control-file" type="file" name="user_image" required="required"/>
+          </div>
+        <div class="row">
+          <div class="col-md-10">&nbsp;
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input align="right" type="submit" class="btn btn-primary" name="register" value="Register Now">
+            </div>
+          </div>
+        </div>                                   
+    </div>
+    </form>
+  </div>
   <?php
   if(isset($_POST['register'])){
     // getting text info and save into local variable

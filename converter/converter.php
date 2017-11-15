@@ -2,27 +2,37 @@
 <html>
   <head>
     <title>Currency Converter</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>    
   </head>
-<body bgcolor="black" style="color: white;">
-  <form method="post" action="converter.php" align="center">
-
-    <b>Enter Amount: </b>
-    <input type="text" name="amount" size="12" placeholder="Enter amount">&nbsp;
-
-    <b>From: </b>&nbsp;
-    <select name="from">
-      <option>USD</option>
-    </select>&nbsp;
-    <b>To: </b>&nbsp;
-    <select name="to">
-      <option>CAD</option>      
-      <option>GBP</option>
-      <option>EURO</option>
-      <option>JPY</option>
-    </select>&nbsp;    
-    <input type="submit" name="convert" value="Convert Now">       
-  </form>
+<body>
+  <br>
+  <h2 class="text-center">Basic PHP Currency Converter</h2>
   <hr>
+  <div class="container text-center" style="width: 90%'">
+    <form method="post" action="converter.php">
+      <div class="form-group" style="width: 90%;">
+      <b>Enter Amount: </b>
+      <input class="form-control" type="text" name="amount" size="12" placeholder="Enter amount">&nbsp;
+
+      <b>From: </b>&nbsp;
+      <select class="form-control" name="from">
+        <option>USD</option>
+      </select>&nbsp;
+      <b>To: </b>&nbsp;
+      <select class="form-control" name="to">
+        <option>CAD</option>      
+        <option>GBP</option>
+        <option>EURO</option>
+        <option>JPY</option>
+      </select>&nbsp; 
+      <br>   
+      <input type="submit" class="btn btn-primary" name="convert" value="Convert Now">   
+      </div>    
+    </form>
+  </div>
   <?php
 
   if(isset($_POST['convert'])){
