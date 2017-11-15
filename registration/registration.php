@@ -24,7 +24,7 @@ $con = mysqli_connect("localhost", "root", "", "php");
   <br>
   <h2 class="text-center">Basic PHP Registration Forms</h2>
   <hr>
-  <div class="container text-center">
+  <div class="container text-center" style="width: 60%;">
     <div class="row">
       <div class="col-md-12">
         <h2 class="text-center">New User? Register Here</h2>
@@ -125,14 +125,14 @@ $con = mysqli_connect("localhost", "root", "", "php");
   <?php
   if(isset($_POST['register'])){
     // getting text info and save into local variable
-    $user_name = $_POST['user_name'];
-    $user_pass = $_POST['user_pass'];
-    $user_email = $_POST['user_email'];
-    $user_country = $_POST['user_country'];
-    $user_gender = $_POST['user_gender'];
-    $user_no = $_POST['user_no'];
-    $user_address = $_POST['user_address'];
-    $user_b_day = $_POST['user_b_day'];
+    $user_name = mysqli_real_escape_string($con, $_POST['user_name']);
+    $user_pass = mysqli_real_escape_string($con, $_POST['user_pass']);
+    $user_email = mysqli_real_escape_string($con, $_POST['user_email']);
+    $user_country = mysqli_real_escape_string($con, $_POST['user_country']);
+    $user_gender = mysqli_real_escape_string($con, $_POST['user_gender']);
+    $user_no = mysqli_real_escape_string($con, $_POST['user_no']);
+    $user_address = mysqli_real_escape_string($con, $_POST['user_address']);
+    $user_b_day = mysqli_real_escape_string($con, $_POST['user_b_day']);
 
     // getting the image & saving into local variables
     $user_image = $_FILES['user_image']['name'];
@@ -165,6 +165,9 @@ $con = mysqli_connect("localhost", "root", "", "php");
      if($check_email==0){
         echo "<script>alert('This email is already registered. Try another email, please.');</script>";
         exit(); 
+     }
+     else {
+      echo $insert = "insert into register_user (user_name,user_pass,user_pass,user_email,user_country,user_no,user_address,user_gender,user_b_day,user_image,register_date) values ('$user_name','$user_pass','$user_email','$user_country','$user_no','$user_address','$user_gender','$user_b_date','$user_image','$register_date', NOW())";
      }
   }
   ?>
