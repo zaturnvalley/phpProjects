@@ -167,7 +167,14 @@ $con = mysqli_connect("localhost", "root", "", "php");
         exit(); 
      }
      else {
-      echo $insert = "insert into register_user (user_name,user_pass,user_pass,user_email,user_country,user_no,user_address,user_gender,user_b_day,user_image,register_date) values ('$user_name','$user_pass','$user_email','$user_country','$user_no','$user_address','$user_gender','$user_b_date','$user_image','$register_date', NOW())";
+      move_uploaded_file($user_tmp, "images/$user_image");
+      
+      $insert = "insert into register_user (user_name,user_pass,user_pass,user_email,user_country,user_no,user_address,user_gender,user_b_day,user_image,register_date) values ('$user_name','$user_pass','$user_email','$user_country','$user_no','$user_address','$user_gender','$user_b_date','$user_image','$register_date', NOW())";
+      $run_insert = mysqli_query($con, $insert);
+        if($run_insert){
+          echo "<script>alert('Registration was successful. Welcome');</script>";
+          echo "<script>Window.open('home.php','_self')</script>";
+        }
      }
   }
   ?>
