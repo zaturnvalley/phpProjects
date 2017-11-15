@@ -65,6 +65,21 @@ $con = mysqli_connect("localhost", "root", "", "php");
   if(isset($_POST['login'])){
     $user_pass = mysqli_real_escape_string($con, $_POST['user_pass']);
     $user_email = mysqli_real_escape_string($con, $_POST['user_email']);
+
+    $sel = "select * from register_user where user_email='$user_email' AND user_pass='$user_pass'";
+
+    $run = mysqli_query($con, $sel);
+
+    $check = mysqli_num_rows($run);
+
+    if($check==0){
+      echo "<script>alert('Password or Email is not correct or registered. Please try again.');</script>";
+      exit();
+    }
+    else {
+      $_SESSION['user_email']=$user_email;
+      echo "<script>window.open('home.php','_self');</script>"
+    }
   }
   ?>
 </body>
