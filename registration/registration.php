@@ -80,7 +80,7 @@
       <tr>
         <td align="right"><strong>Birthday:</strong></td>
         <td>
-          <input type="date" name="b_day" required="required"/>
+          <input type="date" name="user_b_day" required="required"/>
         </td>
       </tr>       
       <tr>
@@ -113,7 +113,7 @@
     $user_tmp = $_FILES['user_image']['tmp_name'];
 
     // If forms are blank, alert
-     if($user_address == '' OR $user_country == '' OR $use_image == '' OR $user_gender == ''){
+     if($user_address == '' OR $user_country == '' OR $user_image == '' OR $user_gender == ''){
         echo "<script>alert('Please fill out all of the fields.');</script>";
         exit();
      }
