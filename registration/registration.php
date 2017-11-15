@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php 
+session_start();
 $con = mysqli_connect("localhost", "root", "", "php");
 ?>
 <html>
@@ -122,6 +123,7 @@ $con = mysqli_connect("localhost", "root", "", "php");
     </div>
     </form>
   </div>
+  <h4 class="text-center">Already Registered? <a href="login.php" title="Login Here" target="_blank">Login Here</a></h4>
   <?php
   if(isset($_POST['register'])){
     // getting text info and save into local variable
@@ -167,8 +169,10 @@ $con = mysqli_connect("localhost", "root", "", "php");
         exit(); 
      }
      else {
+      $_SESSION['user_email']=$user_email;
+
       move_uploaded_file($user_tmp, "images/$user_image");
-      
+
       $insert = "insert into register_user (user_name,user_pass,user_pass,user_email,user_country,user_no,user_address,user_gender,user_b_day,user_image,register_date) values ('$user_name','$user_pass','$user_email','$user_country','$user_no','$user_address','$user_gender','$user_b_date','$user_image','$register_date', NOW())";
       $run_insert = mysqli_query($con, $insert);
         if($run_insert){
