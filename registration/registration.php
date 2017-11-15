@@ -162,7 +162,7 @@ $con = mysqli_connect("localhost", "root", "", "php");
 
      $check_email = mysqli_num_rows($run_email);
 
-     if($check_email==0){
+     if($check_email==1){
         echo "<script>alert('This email is already registered. Try another email, please.');</script>";
         exit(); 
      }
