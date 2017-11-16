@@ -105,13 +105,6 @@ $con = mysqli_connect("localhost", "root", "", "php");
           </div>
         </div>       
         <div class="row">
-          <div class="col-md-2">
-            <strong>Image:</strong>
-          </div>
-          <div class="col-md-10">
-            <input class="form-control-file" type="file" name="user_image" required="required"/>
-          </div>
-        <div class="row">
           <div class="col-md-10">&nbsp;
           </div>
           <div class="col-md-2">
@@ -135,13 +128,11 @@ $con = mysqli_connect("localhost", "root", "", "php");
     $user_no = mysqli_real_escape_string($con, $_POST['user_no']);
     $user_address = mysqli_real_escape_string($con, $_POST['user_address']);
     $user_b_day = mysqli_real_escape_string($con, $_POST['user_b_day']);
+    $register_date = mysqli_real_escape_string($con, date("Y/m/d"));
 
-    // getting the image & saving into local variables
-    $user_image = $_FILES['user_image']['name'];
-    $user_tmp = $_FILES['user_image']['tmp_name'];
 
     // If forms are blank, alert
-     if($user_address == '' OR $user_country == '' OR $user_image == '' OR $user_gender == ''){
+     if($user_address == '' OR $user_country == '' OR $user_gender == ''){
         echo "<script>alert('Please fill out all of the fields.');</script>";
         exit();
      }
@@ -171,9 +162,7 @@ $con = mysqli_connect("localhost", "root", "", "php");
      else {
       $_SESSION['user_email']=$user_email;
 
-      move_uploaded_file($user_tmp, "images/$user_image");
-
-      $insert = "insert into register_user (user_name,user_pass,user_pass,user_email,user_country,user_no,user_address,user_gender,user_b_day,user_image,register_date) values ('$user_name','$user_pass','$user_email','$user_country','$user_no','$user_address','$user_gender','$user_b_date','$user_image','$register_date', NOW())";
+      $insert = "insert into register_user (user_name,user_pass,user_pass,user_email,user_country,user_no,user_address,user_gender,user_b_day,user_image,register_date) values ('$user_name','$user_pass','$user_email','$user_country','$user_no','$user_address','$user_gender','$user_b_day','$register_date', NOW())";
       $run_insert = mysqli_query($con, $insert);
         if($run_insert){
           echo "<script>alert('Registration was successful. Welcome');</script>";

@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(!$_SESSION['user_name']){
+  header("location: login.php");
+}
+else {
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,5 +18,9 @@
   <br>
   <h1 class="text-center">Welcome</h1>
   <hr>
+  <h4 class="text-center"><a href="logout.php" title="Log Out Here" target="_blank">Log out Here</a></h4>  
 </body>
 </html>
+<?php 
+}
+?>
