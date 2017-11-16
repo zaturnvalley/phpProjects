@@ -61,6 +61,7 @@ $con = mysqli_connect("localhost", "root", "", "php");
     </div>
     </form>
   </div>
+  <h4 class="text-center">New? <a href="registration.php" title="Register Here" target="_blank">Register Here</a></h4>  
   <?php
   if(isset($_POST['login'])){
     $user_pass = mysqli_real_escape_string($con, $_POST['user_pass']);
@@ -78,7 +79,7 @@ $con = mysqli_connect("localhost", "root", "", "php");
     }
     else {
       $_SESSION['user_email']=$user_email;
-      echo "<script>window.open('home.php','_self');</script>"
+      echo "<script>window.open('home.php','_self');</script>";
     }
   }
   ?>
