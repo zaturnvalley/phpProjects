@@ -33,23 +33,36 @@ $con = mysqli_connect("localhost", "root", "", "php");
     </div>
     <div class="row">
       <div class="col-md-12">
-        <table>
+        <table style="width: 100%;">
           <tr>
             <th>S.N.</th>
             <th>Name</th>
             <th>Email</th>
             <th>Date</th>
-            <th>Delete</th> 
-            <th>Edit</th>                      
+            <th>Edit</th>               
+            <th>Delete</th>                    
           </tr>
           <?php
-           
+          $sel =  "select * from register_user";
+
+          $run = mysqli_query($con, $sel); 
+          $i=0;
+
+          while($row=mysqli_fetch_array($run)){
+            $name = $row['user_name'];
+            $email = $row['user_email'];
+            $date = $row['user_date'];             
+            $i++;        
           ?>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $i;?></td>
+            <td><?php echo $name;?></td>
+            <td><?php echo $email;?></td>
+            <td><?php echo $date;?></td>       
+            <td><a href="view_users.php" title="Edit">Edit</a></td> 
+            <td><a href="view_users.php" title="Delete">Delete</a></td>                  
           </tr>
+          <?php } ?>
         </table>
       </div>
     </div>
