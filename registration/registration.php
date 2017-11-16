@@ -154,7 +154,7 @@ $con = mysqli_connect("localhost", "root", "", "php");
      }
 
      // password length check
-     if(strlen($user_pass < 8)){
+     if(strlen($user_pass) < 8){
         echo "<script>alert('Please make your password 8 characters or longer.');</script>";
         exit();      
      }
